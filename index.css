@@ -1,0 +1,629 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+/* Home Start */
+#home {
+  position: relative;
+  z-index: 1;
+}
+
+/* Navbar Start */
+nav {
+  background-color: rgb(36, 35, 35);
+  height: 10vmin;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  position: fixed;
+}
+.hidden-leftsidenav {
+  display: none;
+  margin-left: 2px;
+}
+.hidden-leftsidenav img {
+  cursor: pointer;
+  width: 3.5vw;
+}
+.leftside-nav a {
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.leftside-nav p{
+  font-size: 25px;
+}
+.leftside-nav img {
+  width: 18px;
+  height:auto;
+  margin-right: 6px;
+}
+.rightside-nav {
+  display: flex;
+  align-items: center;
+}
+.rightside-nav ul {
+  list-style-type: none;
+  display: flex;
+  margin-right: 15px;
+}
+.rightside-nav li {
+  margin-left: 30px;
+}
+.rightside-nav li:hover {
+  transform: scale(1.3);
+  transition:transform 0.5s;
+}
+.rightside-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 300;
+}
+.rightside-nav a:hover {
+  color: #04aa6d;
+}
+/* Navbar End */
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: auto; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+.sidenav-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0px 30px 0px;
+}
+.sidenavlogin-img{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.sidenavlogin-content p{
+  font-size: 20px ;
+  color: #fff;
+  text-align: center;
+}
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #04aa6d;
+  transform: scale(1.1);
+  transition: transform 0.5s;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Home Background Start */
+.home-background {
+  background-image: url(images/home-bg-1.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+  height: 100vmin;
+}
+.home-text {
+  padding: 14.5vw 0 0 53vw;
+}
+.home-text pre {
+  font-size: 1.5vw;
+  line-height: 1.5;
+}
+.home-text .first-p {
+  font-size: 2.5vw;
+  line-height: 1.8;
+}
+.home-text .second-p {
+  font-size: 3vw;
+  color: #04aa6d;
+  font-weight: 600;
+  line-height: 1.3;
+}
+/* Home Background End */
+/* Home End */
+
+
+/* Packages Start */
+#packages {
+  margin-bottom: 50px;
+}
+.packages-header h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-top: 8vh;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.packages-box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.packages-box {
+  width: 25%;
+  border: 1px solid #fff;
+  border: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
+    0 1px 5px 0 rgb(0 0 0 / 20%);
+  margin: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.packages-box:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+}
+.packages-box .box-header {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.packages-box .box-header img {
+  width: 100%;
+  border-radius: 2px;
+}
+.packages-box .box-header p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 24px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 300;
+}
+.packages-box .box-text {
+  padding: 24px;
+}
+.packages-box .box-text span {
+  color: red;
+  font-weight: 500;
+  font-size: 20px;
+}
+.packages-box hr {
+  border: 0.1px solid rgb(243, 240, 240);
+}
+.packages-box .box-anchor {
+  padding: 20px 25px 0px;
+  height: 0px;
+}
+.packages-box .box-anchor a {
+  text-decoration: none;
+  color: orange;
+}
+.packages-box .box-anchor a:hover {
+  color: #ed9600;
+}
+.anchor-div{
+  padding-bottom: 40px;
+}
+/* Packages End */
+
+
+
+
+/* Login Start */
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  margin: 50px 0;
+}
+.login-header {
+  width: 100%;
+  text-align: center;
+}
+.login-header h3 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin: 20px 0 15px 0;
+}
+.login-header img {
+  width: 40%;
+}
+.loginform-container {
+  width: 70%;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+.login-form a {
+  color: #039be5;
+  text-decoration: none;
+}
+.login-label {
+  font-size: 0.8rem;
+  color: #9e9e9e;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  margin: 10px 0 0 0;
+}
+.login-input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  padding: 10px 0 10px 0;
+}
+.login-input::placeholder {
+  color: rgb(218, 216, 216);
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+.login-input:focus {
+  border-bottom: 2px solid #04aa6d;
+}
+.loginform-button {
+  display: flex;
+  justify-content: space-between;
+  margin: 18px 0 15px 0;
+}
+.loginform-button p {
+  font-size: 15px;
+}
+.loginform-button button {
+  background-color: #04aa6d;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  width: 100px;
+  padding: 14px 20px;
+  font-size: 14px;
+}
+.loginform-button button:hover {
+  opacity: 0.9;
+}
+.loginform-footer {
+  font-size: 15px;
+  margin: 15px 0;
+}
+/* Login End */
+
+
+/* Sign up Start */
+#signup {
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signup-container {
+  width: 70%;
+}
+.signup-header{
+  text-align: center;
+}
+.signup-header h1 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin: 10px 0;
+}
+.signup-header hr {
+  border: 0.1px solid rgb(243, 240, 240);
+  margin: 15px 0 15px 0;
+}
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+.signup-form a {
+  color: #039be5;
+  text-decoration: none;
+}
+.signupform-input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  padding: 10px 0 10px 0;
+}
+.signupform-input:focus {
+  border-bottom: 2px solid #04aa6d;
+}
+.signupform-input::placeholder {
+  color: rgb(218, 216, 216);
+  font-size: 15px;
+  font-weight: 400;
+}
+.signupform-label {
+  font-size: 0.8rem;
+  color: #9e9e9e;
+  font-weight: 500;
+  margin-top: 10px;
+  
+}
+.signup-form div {
+  display: flex;
+  margin: 10px 0 15px 0;
+}
+.signup-form div input {
+  margin-top: 14px;
+  margin-left: 5px;
+}
+.signup-form p {
+  font-size: 15px;
+}
+.signupform-button {
+  display: flex;
+}
+.signupform-button button {
+  width: 50%;
+  border: none;
+  padding: 12px 20px;
+  margin: 8px 0;
+  color: #fff;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+}
+.signupform-button button:hover {
+  opacity: 0.9;
+}
+.signupform-button button[type="button"] {
+  background-color: #f44336;
+}
+.signupform-button button[type="submit"] {
+  background-color: #04aa6d;
+}
+/* Sign up End */
+
+
+
+
+/* About us Start */
+#about {
+  background-color: #212121;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  padding: 30px 0 20px 0;
+}
+.about-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+.about-container h6 {
+  color: #04aa6d;
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+.about-container a {
+  text-decoration: none;
+  color: white;
+  font-size: 14.5px;
+}
+.about-container a:hover {
+  transform: scale(1.1);
+  color: #04aa6d;
+}
+.about-container2 {
+  color: white;
+  margin-left: 10px;
+}
+.about-container2 p span {
+  color: #04aa6d;
+}
+.about-column{
+  display: flex;
+  flex-direction: column;
+  width: 45vw;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.separated-about{
+  display: flex;
+  justify-content: space-around;
+  width: 45vw;
+  align-items: center;
+  align-items: flex-start;
+}
+/* About us End */
+
+
+/* search box when screen size more than 992px */
+.searchBox_ {
+  background: #2f3640;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 5px 0px 5px;
+  right: 0;
+}
+.searchBox_:hover > .searchInput {
+  display: initial;
+  border: none;
+  width: 16vw;
+  padding:0 6px;
+}
+
+/* search box when screen size less than 992px */
+.searchBox {
+  display: none;
+  background: #2f3640;
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  padding: 5px 5px 0px 5px;
+  border-radius: 40px;
+  height:35px;
+}
+.searchBox:hover > .searchInput {
+  width: 20vw;
+  padding: 0 6px;
+}
+.searchInput {
+  background: none;
+  outline: none;
+  border: none;
+  float:left;
+  color: white;
+  font-size: 15px;
+  transition: 0.4s;
+  width: 0px;
+  margin-top: 3px;
+}
+.searchButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2f3640;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.searchimg{
+  width: 17px;
+  height: 17px;
+}
+
+@media screen and (max-width: 992px) {
+  nav {
+    padding: 0;
+  }
+  .rightside-nav {
+    display: none;
+  }
+  .searchBox{
+    display: initial;
+  }
+  .searchInput{
+    margin-top: 1px;
+  }
+  .searchButton {
+    width: 25px;
+    height: 25px;
+  }
+  .leftside-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .hidden-leftsidenav {
+    display: flex;
+  }
+  .packages-box {
+    width: 40%;
+  }
+  .reviews-box {
+    width: 25%;
+  }
+  .reviews-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .packages-box {
+    width: 80%;
+  }
+  .reviews-box {
+    width: 40%;
+  }
+  .leftside-nav a {
+    align-items: center;
+    text-align: center;
+  }  
+}
+
+@media screen and (max-width: 620px) {
+  .leftside-nav p{
+    font-size:4vw;
+  }
+  .leftside-nav img{
+    width:3vw;
+    height: auto;
+  }
+  .loginform-button {
+    flex-direction: column;
+  }
+  .loginform-button button{
+    margin-bottom: 10px;
+  }
+  .separated-about{
+    flex-direction: column;
+  }
+  .about-container a{
+    font-size: 12px;
+  }
+  .feedback-header h2{
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 500px){
+.searchBox{
+  height: 25px;
+  margin-right: 5px;
+}
+.searchInput{
+  font-size: 10px;
+  margin-top: 0;
+}
+.searchInput::placeholder{
+  font-size: 10px;
+}
+.searchButton{
+  width: 15px;
+  height: 15px;
+}
+.searchimg{
+  width: 12px;
+  height: 12px;
+}
+}
+
+/* change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
