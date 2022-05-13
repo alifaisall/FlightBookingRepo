@@ -56,12 +56,16 @@
           <img src="images/user-icon.png" width="15px" height="auto" alt="" />
         </div>
         <div class="inputcontainer-user">
-          <input type="text" placeholder="Phone Number" name="phone" required />
+          <input type="text" placeholder="Phone No" name="phoneNo" required />
           <img src="images/tel-icon.png" width="12px" height="auto" alt="" />
         </div>
         <div class="inputcontainer-user">
           <input type="text" placeholder="Role" name="role" required />
           <img src="images/role-icon.jpg" width="15px" height="auto" alt="" />
+        </div>
+        <div class="inputcontainer-user">
+          <input type="date" name="date" required />
+          <img src="images/date-icon.png" width="15px" height="auto" alt="" />
         </div>
         
         <div class="btns-user">
@@ -90,7 +94,7 @@
         </div>
 
         <div class="inputcontainer-flight">
-          <label for="country">Counry</label>
+          <label for="country">Country</label>
           <input type="text" placeholder="country" name="country" />
         </div>
 
@@ -150,8 +154,17 @@
 
     </div>
 <!-- user table -->
+<div style="margin-top: 150px;">
+   <div class="search-container" id="usersearch">
+      <h4 class="search-header">Search By:</h4>
+      <input class="search-input" type="text" placeholder="Name">
+      <input class="search-input" type="text" placeholder="Role">
+      <input class="search-input" type="date">
+      <button class="search-btn">Search</button>
+    </div>
 <div class="maintbldiv" id="usertbl">
-          <div class="headerdiv">
+ 
+    <div class="headerdiv">
       <table class="table-fill">
         
           <tr >
@@ -159,14 +172,14 @@
             <th style="width: 115px;">User Name</th>
             <th style="width: 200px;">Email</th>
             <th style="width: 90px;">Password</th>
-            <th style="width: 110px; padding: 0px;" >Phone Number</th>
+            <th style="width: 110px; padding: 0px;" >Phone No</th>
             <th style="width: 100px; padding: 0px;">Role</th>
           </tr> 
       </table>
-          </div>
-      
-          <div class="bodydiv">
-          <table class="table-fill">
+    </div>
+    <div class="bodydiv">
+      <table class="table-fill">
+        <tbody>
           
        <?php include('userrelate.php');  ?>
        <?php 
@@ -183,61 +196,71 @@
        <?php } ?>
        
        </tbody>
-       </table>
+      </table>
       
-          </div>
-        </div>
+    </div>
+  </div>
+  </div>
         <!-- end of user table -->
        
 
-<!-- fligh table -->
-<div class="maintbldiv" id="flighttbl">
-   
-   <div class="headerdiv">
-   <table class="table-fill">
-     <tr >
-       <th style="width: 110px;">Flight ID</th>
-       <th style="width: 150px;">Country Name</th>
-       <th style="width: 95px;">Type</th>
-       <th style="width: 90px;">Price</th>
-       <th style="width: 130px;">Inserted Date</th>
-       <th style="width: 100px;">State</th>
-       <th style="width: 100px;">Image Url</th>
-       <th style="width: 160px;">Preferred Airline</th>
-       <th style="width: 290px;">Description</th>
-     </tr> 
-   </table>
- 
-   </div>
-
- <div class="bodydiv">
-  <table class="table-fill">
-     
-     <tbody style="height:48px; overflow:auto;">
-  <?php include('aarelate.php') ?>
-  <?php 
-  while(($row = oci_fetch_array($get_airlines,OCI_BOTH)) != false){
-   ?>
-     <tr>
-       <td class="text-left tdf1" style="width: 112px;"><?php echo isset($row[0])?$row[0]:'' ?></td>
-       <td class="text-left tdf2" style="width: 150px;"><?php echo isset($row[1])?$row[1]:'' ?></td>
-       <td class="text-left tdf3" style="width: 97px;"><?php echo isset($row[3])?$row[3]:'' ?></td>
-       <td class="text-left tdf4" style="width: 92px;"><?php echo isset($row[4])?$row[4]:'' ?></td>
-       <td class="text-left tdf5" style="width: 133px;"><?php echo isset($row[5])?$row[5]:'' ?></td>
-       <td class="text-left tdf6" style="width: 103px;"><?php echo isset($row[6])?$row[6]:'' ?></td>
-       <td class="text-left tdf7" style="width: 103px;"><?php echo isset($row[7])?$row[7]:'' ?></td>
-       <td class="text-left tdf8" style="width: 163px;"><?php echo isset($row[8])?$row[8]:'' ?></td>
-       <td class="text-left tdf9" style="width: 300px;"><?php echo isset($row[2])?$row[2]:'' ?></td>
- 
-     </tr>
-  <?php } ?>
-  
-  </tbody>
-  </table>
+<!-- flight table -->
+<div style="margin-top: 150px;">
+<div class="search-container" id="flightsearch">
+    <h4 class="search-header">Search By:</h4>
+    <input class="search-input" type="text" placeholder="Country Name">
+    <input class="search-input" type="text" placeholder="Type">
+    <input class="search-input" type="text" placeholder="Price">
+    <input class="search-input" type="date">
+    <button class="search-btn">Search</button>
   </div>
-     
-     </div>
-     <!-- end of user table -->
+<div class="maintbldiv" id="flighttbl">
+  
+   
+  <div class="headerdiv">
+    <table class="table-fill">
+      <tr >
+        <th style="width: 110px;">Flight ID</th>
+        <th style="width: 150px;">Country Name</th>
+        <th style="width: 95px;">Type</th>
+        <th style="width: 90px;">Price</th>
+        <th style="width: 130px;">Inserted Date</th>
+        <th style="width: 100px;">State</th>
+        <th style="width: 100px;">Image Url</th>
+        <th style="width: 160px;">Preferred Airline</th>
+        <th style="width: 290px;">Description</th>
+      </tr> 
+    </table>
+  </div>
+
+  <div class="bodydiv">
+    <table class="table-fill">
+      <tbody style="height:48px; overflow:auto;">
+
+      <?php include('aarelate.php') ?>
+      <?php 
+       while(($row = oci_fetch_array($get_airlines,OCI_BOTH)) != false){
+         ?>
+
+          <tr>
+            <td class="text-left tdf1" style="width: 112px;"><?php echo isset($row[0])?$row[0]:'' ?></td>
+            <td class="text-left tdf2" style="width: 150px;"><?php echo isset($row[1])?$row[1]:'' ?></td>
+            <td class="text-left tdf3" style="width: 97px;"><?php echo isset($row[3])?$row[3]:'' ?></td>
+            <td class="text-left tdf4" style="width: 92px;"><?php echo isset($row[4])?$row[4]:'' ?></td>
+            <td class="text-left tdf5" style="width: 133px;"><?php echo isset($row[5])?$row[5]:'' ?></td>
+            <td class="text-left tdf6" style="width: 103px;"><?php echo isset($row[6])?$row[6]:'' ?></td>
+            <td class="text-left tdf7" style="width: 103px;"><?php echo isset($row[7])?$row[7]:'' ?></td>
+            <td class="text-left tdf8" style="width: 163px;"><?php echo isset($row[8])?$row[8]:'' ?></td>
+            <td class="text-left tdf9" style="width: 300px;"><?php echo isset($row[2])?$row[2]:'' ?></td>
+          </tr>
+      <?php } ?>
+  
+      </tbody>
+    </table>
+  </div> 
+</div>
+</div>
+     <!-- end of flight table -->
 
 
 <script> 

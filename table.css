@@ -1,7 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
 /* Table Styles */
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
 .table-fill {
   background: white;
   border-radius:3px;
@@ -9,7 +14,7 @@
   margin: auto;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   animation: float 5s infinite;
-  width: 1300px;
+  width: 1300px
   
 }
 
@@ -24,9 +29,43 @@ margin-bottom: 0px;
   align-items: flex-start;
   height: 800px;
   text-align: start;
-  width: 1300px;
-  margin-top: 100px;
+  overflow-x: auto;
+  width: 900px;
   margin-bottom: 50px;
+}
+.search-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.search-header{
+  font-weight: 500;
+  margin-top: 8px;
+  
+}
+.search-input{
+  border: 1.5px solid rgb(198, 197, 197);
+  border-radius: 3px;
+  outline: none;
+  padding: 5px;
+  margin: 5px;
+}
+.search-input:focus{
+  border-color: #04aa6d;
+}
+.search-btn{
+  border: none;
+  border-radius: 4px;
+  color: white;
+  background-color: #03c47d;
+  font-size: 0.9em;
+  font-weight: 500;
+  padding: 5px 10px;
+  cursor: pointer;
+ margin: 5px;
 }
 
 .bodydiv{
@@ -169,3 +208,6 @@ td:last-child {
   text-align: center;
 }
 
+#flightsearch{
+  display: none;
+}

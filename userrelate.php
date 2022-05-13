@@ -44,6 +44,8 @@ function user(){
     document.getElementById('user').style.backgroundColor = 'black'
     document.getElementById('flight').style.backgroundColor = '#0505057e'
     document.getElementById('usertbl').style.display = 'flex'
+    document.getElementById('usersearch').style.display = 'initial'
+    document.getElementById('flightsearch').style.display = 'none'
     </script>
     ";
 }

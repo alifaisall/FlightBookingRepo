@@ -46,6 +46,8 @@ document.getElementById('flight').style.backgroundColor = 'black'
 document.getElementById('user').style.backgroundColor = '#0505057e'
 document.getElementById('usertbl').style.display = 'none'
 document.getElementById('flighttbl').style.display = 'flex'
+document.getElementById('usersearch').style.display = 'none'
+document.getElementById('flightsearch').style.display = 'initial'
 </script>";
 }
 
