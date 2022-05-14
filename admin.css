@@ -144,6 +144,7 @@ body{
 .inputcontainer-flight input:focus{
     border-color: #04aa6d;
 }
+
 .inputcontainer-flight label{
     color: white;
     margin-bottom: 4px;
