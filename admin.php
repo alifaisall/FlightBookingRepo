@@ -132,8 +132,8 @@
         <div class="inputcontainer-flight">
           <label for="imgurl">Image URL</label>
           <div>
-             <button name="img" class="imgbtn">choose image</button>
-             <label for="img" class="imglabel">No file choosen</label>
+             <button name="img" class="imgbtn" onclick="openInput()">choose image</button>
+             <label for="img" class="imglabel">No file chosen</label>
              <input style='display:none;' type="file" placeholder="image url"name="imgurl" accept="image/x-png,image/gif,image/jpeg,image/jpg"/>
           </div>
         </div>
