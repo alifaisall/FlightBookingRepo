@@ -7,6 +7,8 @@ $password = isset($_POST['password'])?$_POST['password']:'';
 $username = isset($_POST['username'])?$_POST['username']:'';
 $phone = isset($_POST['phone'])?(int)$_POST['phone']:'';
 $role = isset($_POST['role'])?$_POST['role']:'';
+$date = isset($_POST['udate'])?$_POST['udate']:'';
+
  
 if(isset($_POST['userinsert'])){
 
@@ -15,8 +17,12 @@ oci_execute($users_id);
 while(($row = oci_fetch_array($users_id,OCI_BOTH)) != false){
 $usid = (int)$row[0]+1;
 }
+$timestamp = strtotime($date);	 
+$ldate = str_replace('T',' ',date("d-m-Y H:i", $timestamp));
+$hdate = "to_date('$ldate','DD-MM-YYYY HH24:MI')";
 
-$sql = "insert into users(USID,name,email,phoneNo,password,role)values('$usid','$username','$email','$phone','$password','$role')";
+
+$sql = "insert into users(USID,name,email,phoneNo,password,role,userdate)values('$usid','$username','$email','$phone','$password','$role',$hdate)";
 $add_users=oci_parse($connection,$sql);
 oci_execute($add_users);
 user();
@@ -33,7 +39,7 @@ user();
 
 }
 
-$get_users = oci_parse($connection,'select * from users order by USID desc');
+$get_users = oci_parse($connection,"select USID,name,email,phoneNo,password,role,to_char(userdate,'YYYY-MM-DD HH24:MI') from users order by USID desc");
 oci_execute($get_users);
 
 function user(){
@@ -44,8 +50,7 @@ function user(){
     document.getElementById('user').style.backgroundColor = 'black'
     document.getElementById('flight').style.backgroundColor = '#0505057e'
     document.getElementById('usertbl').style.display = 'flex'
-    document.getElementById('usersearch').style.display = 'initial'
-    document.getElementById('flightsearch').style.display = 'none'
+
     </script>
     ";
 }

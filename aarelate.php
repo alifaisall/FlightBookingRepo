@@ -11,7 +11,7 @@ $date = isset($_POST['date'])?$_POST['date']:'';
 $state = isset($_POST['state'])?$_POST['state']:'';
 $imgurl = isset($_POST['imgurl'])?$_POST['imgurl']:'';
 $airline = isset($_POST['airline'])?$_POST['airline']:'';
- 
+
 if(isset($_POST['flightinsert'])){
 
 $airline_id=oci_parse($connection,'select max(AAID) from airline_available');
@@ -21,9 +21,10 @@ $aaid = (int)$row[0]+1;
 }
 //this will change the date format to 10-May-2022
 $timestamp = strtotime($date);	 
-$ldate = date("d-M-Y", $timestamp);
+$ldate = str_replace('T',' ',date("d-m-Y H:i", $timestamp));
+$hdate = "to_date('$ldate','DD-MM-YYYY HH24:MI')";
 
-$sql = "insert into airline_available(AAID,country,description,type,price,AAdate,state,imgurl,preferredAirline)values('$aaid','$country','$description','$type','$price','$ldate','$state','$imgurl','$airline')";
+$sql = "insert into airline_available(AAID,country,description,type,price,AAdate,state,imgurl,preferredAirline)values('$aaid','$country','$description','$type','$price',$hdate,'$state','$imgurl','$airline')";
 $add_airline=oci_parse($connection,$sql);
 oci_execute($add_airline);
 
@@ -35,7 +36,7 @@ flight();
 	flight();
 }
 
-$get_airlines = oci_parse($connection,'select * from airline_available order by AAID desc');
+$get_airlines = oci_parse($connection,"select AAID,country,description,type,price,to_char(AADate,'YYYY-MM-DD HH24:MI'),state,imgurl,preferredAirline from airline_available order by AAID desc");
 oci_execute($get_airlines);
 
 function flight(){
@@ -44,10 +45,7 @@ document.getElementById('showFlight').style.display = 'flex'
 document.getElementById('showUser').style.display = 'none'
 document.getElementById('flight').style.backgroundColor = 'black'
 document.getElementById('user').style.backgroundColor = '#0505057e'
-document.getElementById('usertbl').style.display = 'none'
 document.getElementById('flighttbl').style.display = 'flex'
-document.getElementById('usersearch').style.display = 'none'
-document.getElementById('flightsearch').style.display = 'initial'
 </script>";
 }
 

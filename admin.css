@@ -4,13 +4,13 @@
     padding: 0;
     font-family: "Poppins", sans-serif;
 }
+
 body{
     background-color: #1dd1a125;
 }
 .container{
     display: flex;
-    justify-content: center;
-
+    justify-content: center
 }
 .form-container{
     width: 70%;
@@ -111,6 +111,7 @@ body{
     flex-direction: column;
     width: 60%;
 }
+
 .inputcontainer-flight input{
     border: 1.5px solid rgb(198, 197, 197);
     border-radius: 3px;
@@ -133,4 +134,3 @@ body{
     width: 65%;
     margin-top: 15px;
 }
-
