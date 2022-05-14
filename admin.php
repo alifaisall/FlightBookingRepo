@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin</title>
-    <link rel="stylesheet" href="admin.css" />
     <link rel="stylesheet" href="table.css" />
+    <link rel="stylesheet" href="admin.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    
   </head>
   <body>
   
@@ -19,18 +20,10 @@
       <div class="form-container">
        
         <div class="tab-btns">
-          <button id="user" name="userbutton">User</button>
-          <button id="flight" name="flightbutton" >Flight</button>
+          <button id="user" >User</button>
+          <button id="flight" >Flight</button>
         </div>
 
-        <script src="admin.js"></script>
-        <?php 
-          if(isset($_POST['userbutton'])){
-            echo "<script> user();</script>";
-          }else if(isset($_POST['flightbutton'])){
-            echo "<script> flight(); </script>";
-          }
-        ?>
         
         <!-- user form -->
         <div>
@@ -39,7 +32,7 @@
         <h2>User Form</h2>
 
         <div class="inputcontainer-user">
-          <input type="text" placeholder="User ID" name="userid"/>
+          <input type="text" placeholder="User ID" name="userid" disabled/>
           <img src="images/user-icon.png" width="15px" height="auto" alt="" />
         </div>
         <div class="inputcontainer-user">
@@ -56,15 +49,19 @@
           <img src="images/user-icon.png" width="15px" height="auto" alt="" />
         </div>
         <div class="inputcontainer-user">
-          <input type="text" placeholder="Phone No" name="phoneNo" required />
+          <input type="text" placeholder="Phone" name="phone" required />
           <img src="images/tel-icon.png" width="12px" height="auto" alt="" />
         </div>
         <div class="inputcontainer-user">
           <input type="text" placeholder="Role" name="role" required />
           <img src="images/role-icon.jpg" width="15px" height="auto" alt="" />
         </div>
+        <?php 
+            $date = new DateTime();
+            $dt= $date->format('Y-m-d\TH:i:s');
+           ?>
         <div class="inputcontainer-user">
-          <input type="date" name="date" required />
+          <input type="datetime-local" name="udate" value='<?php echo $dt; ?>' />
           <img src="images/date-icon.png" width="15px" height="auto" alt="" />
         </div>
         
@@ -107,9 +104,9 @@
           <label for="type">Type</label>
           <input type="text" placeholder="type" name="type" />
         </div>
-<?php 
-          $date = new DateTime();
-          $dt= $date->format('Y-m-d\TH:i:s');
+          <?php 
+            $date = new DateTime();
+            $dt= $date->format('Y-m-d\TH:m:s');
            ?>
         <div class="inputcontainer-flight">
           <label for="date">Date</label>
@@ -134,7 +131,11 @@
 
         <div class="inputcontainer-flight">
           <label for="imgurl">Image URL</label>
-          <input type="file" placeholder="image url" name="imgurl" accept="image/x-png,image/gif,image/jpeg,image/jpg" />
+          <div style=" display:flex; flex-direction: row; align-items: center; border: 2px solid darkgray; border-radius: 3px;">
+             <button name="img" style="padding: 1px 3px; margin: 4px 6px 4px 8px; width: 110px; font-size: 11px;" >choose image</button>
+             <label for="img" style="font-size:13px; color: black; width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">No file choosen</label>
+             <input style='display:none;' type="file" placeholder="image url"name="imgurl" accept="image/x-png,image/gif,image/jpeg,image/jpg"/>
+          </div>
         </div>
 
         <div class="btns-flight">
@@ -154,15 +155,15 @@
 
     </div>
 <!-- user table -->
-<div style="margin-top: 150px;">
-   <div class="search-container" id="usersearch">
+<div id="usertbl">
+   <div class="search-container">
       <h4 class="search-header">Search By:</h4>
       <input class="search-input" type="text" placeholder="Name">
       <input class="search-input" type="text" placeholder="Role">
       <input class="search-input" type="date">
       <button class="search-btn">Search</button>
     </div>
-<div class="maintbldiv" id="usertbl">
+<div class="maintbldiv">
  
     <div class="headerdiv">
       <table class="table-fill">
@@ -174,6 +175,7 @@
             <th style="width: 90px;">Password</th>
             <th style="width: 110px; padding: 0px;" >Phone No</th>
             <th style="width: 100px; padding: 0px;">Role</th>
+            <th style="width: 100px; padding: 0px;">Date</th>
           </tr> 
       </table>
     </div>
@@ -185,13 +187,14 @@
        <?php 
        while(($row = oci_fetch_array($get_users,OCI_BOTH)) != false){
         ?>
-          <tr onclick='getRowIndex(this)'>
+          <tr onclick='getUserRowIndex(this)'>
             <td class="text-left tdu1" style="width: 86px; padding: 3px;"><?php echo isset($row[0])?$row[0]:'' ?></td>
             <td class="text-left tdu2" style="width: 110px; padding: 3px;"><?php echo isset($row[1])?$row[1]:'' ?></td>
             <td class="text-left tdu3" style="width: 112px; padding: 3px;"><?php echo isset($row[2])?$row[2]:'' ?></td>
             <td class="text-left tdu4" style="width: 122px;  padding: 3px;"><?php echo isset($row[4])?$row[4]:'' ?></td>
             <td class="text-left tdu5" style="width: 105px;  padding: 3px;"><?php echo isset($row[3])?$row[3]:'' ?></td>
             <td class="text-left tdu6" style="width: 95px;  padding: 3px;"><?php echo isset($row[5])?$row[5]:'' ?></td>
+            <td class="text-left tdu6" style="width: 95px;  padding: 3px;"><?php echo isset($row[6])?$row[6]:'' ?></td>
           </tr>
        <?php } ?>
        
@@ -205,8 +208,9 @@
        
 
 <!-- flight table -->
-<div style="margin-top: 150px;">
-<div class="search-container" id="flightsearch">
+<div id="flighttbl">
+
+<div class="search-container">
     <h4 class="search-header">Search By:</h4>
     <input class="search-input" type="text" placeholder="Country Name">
     <input class="search-input" type="text" placeholder="Type">
@@ -214,12 +218,12 @@
     <input class="search-input" type="date">
     <button class="search-btn">Search</button>
   </div>
-<div class="maintbldiv" id="flighttbl">
+<div class="maintbldiv" >
   
    
   <div class="headerdiv">
     <table class="table-fill">
-      <tr >
+      <tr>
         <th style="width: 110px;">Flight ID</th>
         <th style="width: 150px;">Country Name</th>
         <th style="width: 95px;">Type</th>
@@ -242,7 +246,7 @@
        while(($row = oci_fetch_array($get_airlines,OCI_BOTH)) != false){
          ?>
 
-          <tr>
+          <tr onclick='getFlightRowIndex(this)'>
             <td class="text-left tdf1" style="width: 112px;"><?php echo isset($row[0])?$row[0]:'' ?></td>
             <td class="text-left tdf2" style="width: 150px;"><?php echo isset($row[1])?$row[1]:'' ?></td>
             <td class="text-left tdf3" style="width: 97px;"><?php echo isset($row[3])?$row[3]:'' ?></td>
@@ -262,10 +266,9 @@
 </div>
      <!-- end of flight table -->
 
-
-<script> 
-document.getElementById('flighttbl').style.display = 'none'
-function getRowIndex(index){
+ <script src="admin.js"></script>
+ <script>
+function getUserRowIndex(index){
   var form = document.getElementById("showUser")
   form.elements[0].value=index.cells[0].innerText
   form.elements[1].value=index.cells[1].innerText
@@ -273,10 +276,40 @@ function getRowIndex(index){
   form.elements[3].value=index.cells[3].innerText
   form.elements[4].value=index.cells[4].innerText
   form.elements[5].value=index.cells[5].innerText
+  // this two lines will convert space to T because the <input type"datetime-local"> only accept this type of format "d-m-yTh:i"
+  const dte = (index.cells[6].innerText).replace(' ','T')
+  form.elements[6].value=dte;
+  
 
 }
+
+function getFlightRowIndex(index){
+  var form = document.getElementById("showFlight")
+  form.elements[0].value=index.cells[0].innerText
+  form.elements[1].value=index.cells[1].innerText
+  form.elements[2].value=index.cells[8].innerText
+  form.elements[3].value=index.cells[2].innerText
+  const dte = (index.cells[4].innerText).replace(' ','T')
+  form.elements[4].value=dte;
+  form.elements[5].value=index.cells[7].innerText
+  form.elements[6].value=index.cells[5].innerText
+  form.elements[7].value=index.cells[3].innerText
+  
+  form.elements[8].value='sdfsdfss'
+
+
+
+
+}
+
 </script>
 
+
+<?php  
+    $date = "12-05-2022 12:123 AM";  
+    $newDate = date("Y-m-d\TH:i a", strtotime($date));  
+    echo $newDate;  
+?>  
 
   </body>
 </html>
