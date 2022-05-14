@@ -131,9 +131,9 @@
 
         <div class="inputcontainer-flight">
           <label for="imgurl">Image URL</label>
-          <div style=" display:flex; flex-direction: row; align-items: center; border: 2px solid darkgray; border-radius: 3px;">
-             <button name="img" style="padding: 1px 3px; margin: 4px 6px 4px 8px; width: 110px; font-size: 11px;" >choose image</button>
-             <label for="img" style="font-size:13px; color: black; width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">No file choosen</label>
+          <div>
+             <button name="img" class="imgbtn">choose image</button>
+             <label for="img" class="imglabel">No file choosen</label>
              <input style='display:none;' type="file" placeholder="image url"name="imgurl" accept="image/x-png,image/gif,image/jpeg,image/jpg"/>
           </div>
         </div>
